@@ -2,7 +2,7 @@
 /*
 Plugin Name: ToolsMenia's Case Converter Tool
 Description: A simple case converter tool with shortcode.
-Version: 1.0
+Version: 1.1
 Author: Kashif Ajmal
 */
 
