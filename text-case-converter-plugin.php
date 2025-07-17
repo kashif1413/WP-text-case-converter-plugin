@@ -1,5 +1,4 @@
 <?php
-
 /*
 Plugin Name: ToolsMenia's Case Converter Tool
 Plugin URI:  https://github.com/kashif1413/text-case-converter-plugin
