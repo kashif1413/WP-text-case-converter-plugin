@@ -1,9 +1,14 @@
 <?php
+
 /*
 Plugin Name: ToolsMenia's Case Converter Tool
-Description: A simple case converter tool with shortcode.
+Plugin URI:  https://github.com/kashif1413/text-case-converter-plugin
+Description: A simple case converter tool.
 Version: 1.1
 Author: Kashif Ajmal
+Author URI: https://github.com/kashif1413
+GitHub Plugin URI: kashif1413/text-case-converter-plugin
+Primary Branch: main
 */
 
 function cc_tool_shortcode() {
