@@ -3,7 +3,7 @@
 Plugin Name: ToolsMenia's Case Converter Tool
 Plugin URI:  https://github.com/kashif1413/WP-text-case-converter-plugin
 Description: A simple case converter tool.
-Version: 1.1
+Version: 1.2
 Author: Kashif Ajmal
 Author URI: https://github.com/kashif1413
 GitHub Plugin URI: kashif1413/WP-text-case-converter-plugin
