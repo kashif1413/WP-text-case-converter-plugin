@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: ToolsMenia's Case Converter Tool
-Plugin URI:  https://github.com/kashif1413/text-case-converter-plugin
+Plugin URI:  https://github.com/kashif1413/WP-text-case-converter-plugin
 Description: A simple case converter tool.
 Version: 1.1
 Author: Kashif Ajmal
 Author URI: https://github.com/kashif1413
-GitHub Plugin URI: kashif1413/text-case-converter-plugin
+GitHub Plugin URI: kashif1413/WP-text-case-converter-plugin
 Primary Branch: main
 */
 
