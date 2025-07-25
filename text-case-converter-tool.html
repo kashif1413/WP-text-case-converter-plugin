@@ -1,3 +1,4 @@
+
 <style>
 :root {
   --bg: #f9f9f9;
@@ -16,10 +17,15 @@
   margin: 10px auto;
   max-width: 1000px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 2px solid #BA99F4;
   border-radius: 8px;
 }
-
+.tool-content-div {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #BA99F4;
+}
 /* ✅ Textarea wrapper */
 .text-wrap {
   position: relative;
@@ -27,22 +33,56 @@
 }
 
 /* ✅ Textarea */
-textarea {
+.tool-textarea {
+  line-height: 18px;
   box-sizing: border-box;
   width: 100%;
   height: 250px;
   min-height: 250px;
   padding: 10px;
-  font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 2px solid #E8E7FC;
   border-radius: 6px;
   resize: vertical;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-  background: #fefefe;
+  background: #f1f0fa;
   color: var(--fg);
   display: block;
 }
+
+.tool-textarea:focus{
+  border: 1px solid #BA99F4;
+  border-color: #BA99F4; /* accent color on focus */
+  outline: none
+}
+/* ✅ Small icon buttons on the textarea (copy, clear, etc.) */
+.icon-bar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+
+.tool-icon-button {
+  background: #ffffff; /* normal state */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.2s;
+  color: var(--fg);
+}
+
+
+.tool-icon-button:hover {
+  background: #E8E7FC; /* subtle hover */
+}
+
+
 
 /* ✅ Counts section (if needed) */
 .counts {
@@ -60,10 +100,13 @@ textarea {
   justify-content: center;
   margin: 20px 0;
 }
-.btn-row button {
+.tool-text-button {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   flex: 1 1 120px;
-  padding: 12px;
-  background: var(--accent);
+  padding: 10px;
+  background: radial-gradient(ellipse,#BA99F4, #c7c4fd)   ;
+  /* linear-gradient(45deg, #BA99F4, #E8E7FC); */
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -71,44 +114,15 @@ textarea {
   box-shadow: 0 3px 6px rgba(0,0,0,0.3);
   transition: transform 0.1s, background 0.2s;
 }
-.btn-row button:hover:not(:disabled) {
+.tool-text-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  background: rgb(100, 98, 95); /* darker accent on hover */
+  background: #BA99F4; /* darker accent on hover */
 }
 .btn-row button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* ✅ Small icon buttons on the textarea (copy, clear, etc.) */
-.icon-bar {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 8px;
-}
-.icon-bar button {
-  background: #ffffff; /* normal state */
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px 8px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: background 0.2s;
-  color: var(--fg);
-}
-.icon-bar button:hover {
-  background: #e6e6e6; /* subtle hover */
-}
-.icon-bar button:active {
-  background: #ddd; /* pressed state (not red!) */
-}
-.icon-bar button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 
 /* ✅ Output section (hidden by default) */
 #output-section {
@@ -117,12 +131,7 @@ textarea {
 }
 
 /* ✅ Main container for output (if needed) */
-.main {
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
+
 
 /* ✅ Responsive adjustments */
 @media (max-width: 1024px) {
@@ -137,6 +146,10 @@ textarea {
     gap: 8px;               /* spacing between buttons */
     justify-content: space-between; /* distribute evenly */
   }
+  .main {
+ 
+  padding: 8px;
+}
 }
 
 
@@ -144,38 +157,40 @@ textarea {
 
 
 <div class="converter">
-  <div class="main">
+  <div class="tool-content-div">
     <div class="text-wrap">
-      <textarea id="input-text" placeholder="Type or paste your text here to change text case..."></textarea>
+         <textarea class="tool-textarea" id="input-text" placeholder="Type or paste your text here to change text case..."></textarea>
       <div class="icon-bar">
-        <button id="clearBtnIn" title="Clear">❌</button>
+         <button class="tool-icon-button" id="chooseFileBtn" title="Choose Text File" aria-label="Choose Text File">📂</button>
+         <button class="tool-icon-button" id="clearBtnIn" title="Clear">❌</button>
+          <input type="file" id="fileInput" accept=".txt" style="display:none">
       </div>
     </div>
     <div class="counts" id="counts"></div>
     <div id="output-section">
       <div class="text-wrap">
-        <textarea id="output-text" readonly></textarea>
+        <textarea class="tool-textarea" id="output-text" readonly></textarea>
         <div class="icon-bar">
-          <button id="copyBtn" title="Copy">📋</button>
-          <button id="downloadBtn" title="Download">⬇️</button>
-          <button id="clearBtn" title="Clear">❌</button>
+          <button class="tool-icon-button" id="copyBtn" title="Copy">📋</button>
+          <button class="tool-icon-button" id="downloadBtn" title="Download">⬇️</button>
+          <button  class="tool-icon-button" id="clearBtn" title="Clear">❌</button>
         </div>
       </div>
     </div>
     <div class="btn-row">
-      <button data-action="upper">UPPERCASE</button>
-      <button data-action="lower">lowercase</button>
-      <button data-action="capitalize">Capitalize Case</button>
-      <button data-action="title">Title Case</button>
-      <button data-action="sentence">Sentence Case</button>
-      <button data-action="toggle">tOGGLE cASE</button>
-      <button data-action="alternate">aLtErNaTiNg</button>
-      <button data-action="camel">camelCase</button>
-      <button data-action="pascal">PascalCase</button>
-      <button data-action="snake">snake_case</button>
-      <button data-action="kebab">kebab-case</button>
-      <button data-action="dot">dot.case</button>
-      <button data-action="space">space case</button>
+      <button class="tool-text-button" data-action="upper">UPPERCASE</button>
+      <button class="tool-text-button" data-action="lower">lowercase</button>
+      <button class="tool-text-button" data-action="capitalize">Capitalize Case</button>
+      <button class="tool-text-button" data-action="title">Title Case</button>
+      <button class="tool-text-button" data-action="sentence">Sentence Case</button>
+      <button class="tool-text-button" data-action="toggle">tOGGLE cASE</button>
+      <button class="tool-text-button" data-action="alternate">aLtErNaTiNg</button>
+      <button class="tool-text-button" data-action="camel">camelCase</button>
+      <button class="tool-text-button" data-action="pascal">PascalCase</button>
+      <button class="tool-text-button" data-action="snake">snake_case</button>
+      <button class="tool-text-button" data-action="kebab">kebab-case</button>
+      <button class="tool-text-button" data-action="dot">dot.case</button>
+      <button class="tool-text-button" data-action="space">space case</button>
     </div>
 
     
@@ -183,6 +198,9 @@ textarea {
 </div>
 
 <script>
+const textInput = document.getElementById('input-text');
+const fileInput = document.getElementById('fileInput');
+
 document.addEventListener('DOMContentLoaded', function() {
   const inputEl = document.getElementById('input-text');
   const outputEl = document.getElementById('output-text');
@@ -255,6 +273,21 @@ document.addEventListener('DOMContentLoaded', function() {
     outputEl.value = '';
     outputSection.style.display = 'none';
   });
+  
+
+// choose file
+document.getElementById('chooseFileBtn').addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  if(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      textInput.value = e.target.result;
+      updateCounts();
+    };
+    reader.readAsText(file);
+  }
+});
 
   updateCounts();
 });
