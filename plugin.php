@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Case Converter Tool
+Plugin Name:    TM Text Case Converter
 Plugin URI:  https://github.com/kashif1413/WP-text-case-converter-plugin
 Description: A simple case converter tool.
 Version: 1.4
