@@ -1,0 +1,48 @@
+<!-- Styling file -->
+<link rel="stylesheet" href="style.css">
+
+<!-- HTML Code -->
+<div class="tool-content-outer-div">
+  <div class="tool-content-div">
+    <div class="text-wrap">
+         <textarea class="tool-textarea" id="input-text" placeholder="Type or paste your text here to change text case..."></textarea>
+      <div class="icon-bar">
+         <button class="tool-icon-button" id="chooseFileBtn" title="Choose Text File" aria-label="Choose Text File">📂</button>
+         <button class="tool-icon-button" id="clearBtnIn" title="Clear">❌</button>
+          <input type="file" id="fileInput" accept=".txt" style="display:none">
+      </div>
+    </div>
+    <div class="tool-text" id="counts"></div>
+    <div id="output-section">
+      <div class="text-wrap">
+        <textarea class="tool-textarea" id="output-text" readonly></textarea>
+        <div class="icon-bar">
+          <button class="tool-icon-button" id="copyBtn" title="Copy">📋</button>
+          <button class="tool-icon-button" id="downloadBtn" title="Download">⬇️</button>
+          <button  class="tool-icon-button" id="clearBtn" title="Clear">❌</button>
+        </div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="tool-text-button" data-action="upper">UPPERCASE</button>
+      <button class="tool-text-button" data-action="lower">lowercase</button>
+      <button class="tool-text-button" data-action="capitalize">Capitalize Case</button>
+      <button class="tool-text-button" data-action="title">Title Case</button>
+      <button class="tool-text-button" data-action="sentence">Sentence Case</button>
+      <button class="tool-text-button" data-action="toggle">tOGGLE cASE</button>
+      <button class="tool-text-button" data-action="alternate">aLtErNaTiNg</button>
+      <button class="tool-text-button" data-action="camel">camelCase</button>
+      <button class="tool-text-button" data-action="pascal">PascalCase</button>
+      <button class="tool-text-button" data-action="snake">snake_case</button>
+      <button class="tool-text-button" data-action="kebab">kebab-case</button>
+      <button class="tool-text-button" data-action="dot">dot.case</button>
+      <button class="tool-text-button" data-action="space">space case</button>
+    </div>
+
+    
+  </div>
+</div>
+
+
+<!-- Script File -->
+<script src="script.js"></script>
